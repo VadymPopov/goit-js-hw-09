@@ -13,6 +13,7 @@ const refs = {
 
 let intervalId = null;
 let selectedDate = null;
+let timeDiff = null;
 
 const options = {
   enableTime: true,
