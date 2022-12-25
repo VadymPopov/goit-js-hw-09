@@ -15,15 +15,12 @@ function onStartClick() {
   timerId = setInterval(() => {
     changeBgColor();
   }, DELAY);
-
-  refs.buttonStart.disabled = true;
-  refs.buttonStop.disabled = false;
+  onBtnDisabled();
 }
 
 function onStopClick() {
-  refs.buttonStart.disabled = false;
-  refs.buttonStop.disabled = true;
   clearInterval(timerId);
+  onBtnDisabled();
 }
 
 function getRandomHexColor() {
@@ -32,4 +29,14 @@ function getRandomHexColor() {
 
 function changeBgColor() {
   refs.body.style.backgroundColor = getRandomHexColor();
+}
+
+function onBtnDisabled() {
+  if (!refs.buttonStart.disabled) {
+    refs.buttonStart.disabled = true;
+    refs.buttonStop.disabled = false;
+  } else {
+    refs.buttonStart.disabled = false;
+    refs.buttonStop.disabled = true;
+  }
 }

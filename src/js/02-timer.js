@@ -20,13 +20,13 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose(selectedDates) {
-    if (selectedDates[0] < options.defaultDate) {
+  onClose([selectedDates]) {
+    if (selectedDates < Date.now()) {
       Notify.failure('Please choose a date in the future');
       return;
     }
     refs.startButton.disabled = false;
-    selectedDate = selectedDates[0];
+    selectedDate = selectedDates;
   },
 };
 
